@@ -1,0 +1,370 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #191919;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* ========================================
+   CARD
+======================================== */
+
+.card {
+  width: 792px;
+  height: 478px;
+  perspective: 1400px;
+}
+
+.card__inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  transform-style: preserve-3d;
+  transition: transform 0.9s ease;
+
+  cursor: pointer;
+}
+
+.card__inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+
+/* ========================================
+   BOTH SIDES
+======================================== */
+
+.card__face {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+
+  background: #ffffff;
+
+  border-radius: 30px;
+  border: 6px solid #bdbdbd;
+
+  overflow: hidden;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+
+/* ========================================
+   FRONT
+======================================== */
+
+.card__face--front {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.front-inner {
+  width: calc(100% - 70px);
+  height: calc(100% - 70px);
+
+  border: 4px solid #e8bfd3;
+  border-radius: 35px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 230px;
+  max-width: 45%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* ========================================
+   BACK
+======================================== */
+
+.card__face--back {
+  transform: rotateY(180deg);
+
+  padding: 40px 65px 65px;
+
+  color: #3d3d3d;
+}
+
+
+/* ========================================
+   TITLE
+======================================== */
+
+.id-card h1 {
+  text-align: center;
+
+  font-size: 39px;
+  font-weight: 600;
+
+  line-height: 1.15;
+
+  margin-bottom: 25px;
+
+  color: #363636;
+}
+
+.id-card h1 span {
+  font-weight: 500;
+}
+
+
+/* ========================================
+   PINK DIVIDER
+======================================== */
+
+.pink-line {
+  width: 100%;
+  height: 2px;
+
+  background: #e8a9c5;
+
+  margin-bottom: 24px;
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.description {
+  font-family: Arial, sans-serif;
+
+  font-size: 17px;
+  line-height: 1.45;
+
+  color: #707070;
+
+  margin: 0 5px 34px;
+}
+
+
+/* ========================================
+   STUDENT SECTION
+======================================== */
+
+.student-section {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 55px;
+}
+
+
+/* ========================================
+   PHOTO
+======================================== */
+
+.photo-container {
+  width: 180px;
+  height: 225px;
+
+  flex-shrink: 0;
+
+  padding: 7px;
+
+  border: 2px solid #d7d7d7;
+
+  background: #fafafa;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* ========================================
+   INFORMATION
+======================================== */
+
+.student-info {
+  flex: 1;
+
+  margin-top: -3px;
+}
+
+.info-row {
+  min-height: 65px;
+
+  display: grid;
+  grid-template-columns: 245px 1fr;
+
+  align-items: center;
+
+  border-bottom: 2px solid #dedede;
+}
+
+.label {
+  font-size: 28px;
+  font-weight: 700;
+
+  color: #555;
+}
+
+.value {
+  font-size: 28px;
+  font-weight: 500;
+
+  color: #383838;
+
+  white-space: nowrap;
+}
+
+.value.pink {
+  color: #ca759d;
+  font-weight: 600;
+}
+
+
+/* ========================================
+   PINK BOTTOM STRIP
+======================================== */
+
+.pink-bottom {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 58px;
+
+  background: #e8b7ce;
+}
+
+
+/* ========================================
+   SMALLER SCREENS
+======================================== */
+
+@media (max-width: 850px) {
+
+  .card {
+    width: 90vw;
+    height: calc(90vw * 0.6035);
+  }
+
+  .card__face {
+    border-width: 4px;
+    border-radius: 24px;
+  }
+
+  .card__face--back {
+    padding: 25px 40px 45px;
+  }
+
+  .id-card h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  .description {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .student-section {
+    gap: 25px;
+  }
+
+  .photo-container {
+    width: 120px;
+    height: 150px;
+  }
+
+  .info-row {
+    min-height: 45px;
+    grid-template-columns: 150px 1fr;
+  }
+
+  .label,
+  .value {
+    font-size: 17px;
+  }
+
+  .pink-bottom {
+    height: 35px;
+  }
+}
+
+
+@media (max-width: 550px) {
+
+  .card {
+    width: 94vw;
+    height: calc(94vw * 0.6035);
+  }
+
+  .card__face--back {
+    padding: 18px 22px 30px;
+  }
+
+  .id-card h1 {
+    font-size: 18px;
+  }
+
+  .description {
+    font-size: 9px;
+    margin-bottom: 12px;
+  }
+
+  .student-section {
+    gap: 12px;
+  }
+
+  .photo-container {
+    width: 75px;
+    height: 95px;
+    padding: 4px;
+  }
+
+  .info-row {
+    min-height: 30px;
+    grid-template-columns: 80px 1fr;
+  }
+
+  .label,
+  .value {
+    font-size: 10px;
+  }
+
+  .pink-bottom {
+    height: 22px;
+  }
+
+  .front-inner {
+    width: calc(100% - 35px);
+    height: calc(100% - 35px);
+    border-width: 2px;
+  }
+
+  .logo {
+    width: 120px;
+  }
+}
